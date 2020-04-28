@@ -1,0 +1,40 @@
+{
+  "name": "tdd-demo-ass",
+  "version": "1.0.0",
+  "description": "Demo testing with mocha",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "npm run createTables && node ./server/index.js",
+    "test": "npm run testTables && nyc --reporter=html --reporter=text mocha --timeout 5000 ./server/tests/*.js --exit",
+    "dev": "npm run createTables && nodemon --exec nodemon ./server/index.js",
+    "createTables": "node ./server/models/createTables.js",
+    "testTables": "node ./server/models/testTables",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Francois-MUGOROZI/tdd-demo-ass.git"
+  },
+  "author": "Francois Mugorozi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Francois-MUGOROZI/tdd-demo-ass/issues"
+  },
+  "homepage": "https://github.com/Francois-MUGOROZI/tdd-demo-ass#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.2",
+    "pg": "^7.18.2"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nodeman": "^1.1.2",
+    "nyc": "^15.0.1"
+  }
+}
