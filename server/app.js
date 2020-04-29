@@ -12,11 +12,11 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/', (req, res) => {
-  res.send('Welcome to contact book');
+app.get('/', (req, res) => {
+  res.status(200).json({ status: 200, message: 'Welcome to contact book' });
 });
 
-app.use((req, res) =>
+app.get('/api/notfound', (req, res) =>
   res.status(404).json({
     status: 404,
     error: ' PAGE NOT FOUND ',
@@ -24,4 +24,3 @@ app.use((req, res) =>
 );
 
 module.exports.app = app;
- 
