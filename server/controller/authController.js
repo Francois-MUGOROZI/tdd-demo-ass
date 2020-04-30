@@ -1,6 +1,9 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { pool } = require('../config/db_config');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 module.exports.signup = async (req, res) => {
   const emailFind = 'SELECT * FROM users WHERE email =$1';
